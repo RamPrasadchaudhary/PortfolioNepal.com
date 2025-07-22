@@ -1,0 +1,139 @@
+.about-section-adv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.about-card-adv {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 48px 40px;
+  max-width: 950px;
+  margin: 40px 0 0 0;
+  width: 100%;
+}
+
+.about-avatar-adv {
+  flex: 0 0 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-avatar-adv img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007bff;
+  box-shadow: 0 4px 24px #007bff22;
+  background: #fff;
+}
+
+.about-info-adv {
+  flex: 1;
+  min-width: 220px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-title-adv {
+  font-size: 2.1rem;
+  color: #007bff;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-highlight-adv {
+  color: #007bff;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.about-skills-adv {
+  color: #00c6ff;
+  font-weight: 600;
+}
+
+.about-list-adv {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-list-adv li {
+  font-size: 1.08rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0f6ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px #007bff11;
+}
+
+.about-list-adv li span {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .about-card-adv {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 12px;
+    border-radius: 18px;
+  }
+  .about-avatar-adv {
+    justify-content: center;
+    width: 100%;
+  }
+  .about-avatar-adv img {
+    width: 120px;
+    height: 120px;
+  }
+  .about-info-adv {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+  .about-title-adv {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-card-adv {
+    padding: 18px 2vw;
+    margin: 24px 0 0 0;
+    border-radius: 10px;
+  }
+  .about-avatar-adv img {
+    width: 90px;
+    height: 90px;
+  }
+  .about-title-adv {
+    font-size: 1.1rem;
+  }
+  .about-list-adv li {
+    font-size: 0.98rem;
+    padding: 7px 8px;
+  }
+}
