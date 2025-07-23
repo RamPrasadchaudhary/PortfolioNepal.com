@@ -9,9 +9,9 @@ const projects = [
     linkLabel: 'View Live'
   },
   {
-    title: 'Student Management System',
-    description: 'CRUD application using JSP, Servlets, and MySQL. Features authentication, dashboard, and reports.',
-    link: 'https://github.com/your-github-id/student-management',
+    title: 'School Management System',
+    description: 'CRUD application using Php, and MySQL. Features authentication, dashboard, and reports.',
+    link: 'https://github.com/RamPrasadchaudhary/4th-semproject',
     linkLabel: 'Source Code'
   },
   {
@@ -23,6 +23,18 @@ const projects = [
   {
     title: 'Hostel Management System',
     description: 'Full-stack MERN e-commerce app with payment integration, admin panel, and product management.',
+    link: 'https://github.com/RamPrasadchaudhary/Hostel_Management_System',
+    linkLabel: 'Source Code'
+  },
+  {
+    title: 'Stationary Software',
+    description: 'A C# language based Application that manage all the record about book stock, selling purchased etc.',
+    link: 'https://github.com/RamPrasadchaudhary/BookshopManagementSystem-Csharp',
+    linkLabel: 'Source Code'
+  } ,
+  {
+    title: 'EcoMart E-commerce For College Students running....... ',
+     description: 'Full-stack MERN e-commerce app with payment integration, admin panel, and product management.',
     link: 'https://github.com/your-github-id/ecommerce-platform',
     linkLabel: 'Source Code'
   }

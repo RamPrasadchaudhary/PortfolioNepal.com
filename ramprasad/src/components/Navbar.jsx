@@ -3,8 +3,8 @@ import '../Style/navbar.css';
 
 const TopContactBar = ({ visible }) => (
   <div className={`top-contact-bar${visible ? '' : ' hide'}`}>
-    <span>📞 +91 98765 43210</span>
-    <span>📧 ramprasad@email.com</span>
+    <span>📞 +9779821574168</span>
+    <span>📧 ramprasadc331@gmail.com</span>
   </div>
 );
 

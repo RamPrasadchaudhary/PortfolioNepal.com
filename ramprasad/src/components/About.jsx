@@ -1,12 +1,12 @@
 import React from 'react';
 import '../Style/about.css';
-
+import ramp from '../image/ramp.png';
 const About = () => (
   <section id="about" className="about-section-adv">
     <div className="about-card-adv">
       <div className="about-avatar-adv">
         <img
-          src="https://avatars.githubusercontent.com/u/1?v=4"
+          src={ramp}
           alt="Ram Prasad"
         />
       </div>

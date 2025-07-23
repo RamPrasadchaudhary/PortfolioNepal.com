@@ -104,10 +104,15 @@
   .about-avatar-adv {
     justify-content: center;
     width: 100%;
+     margin-top: 0px;
+    padding-top: 0px;
+    
   }
   .about-avatar-adv img {
     width: 120px;
     height: 120px;
+      
+
   }
   .about-info-adv {
     align-items: center;
@@ -115,6 +120,8 @@
     max-width: 100%;
   }
   .about-title-adv {
+    margin-top: 0px;
+    padding-top: 0px;
     font-size: 1.5rem;
   }
 }
@@ -126,8 +133,8 @@
     border-radius: 10px;
   }
   .about-avatar-adv img {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
   }
   .about-title-adv {
     font-size: 1.1rem;

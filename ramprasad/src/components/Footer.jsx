@@ -23,8 +23,8 @@ const Footer = () => {
 
         <div className="footer-section contact">
           <h3>Contact</h3>
-          <p><a href="mailto:ramprasad@example.com">ramprasad@example.com</a></p>
-          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+          <p><a href="mailto:ramprasad@example.com">ramprasadc331@gmail.com</a></p>
+          <p><a href="tel:+919876543210">+9779821574168</a></p>
         </div>
 
         <div className="footer-section social">
@@ -39,9 +39,9 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      {/* <div className="footer-bottom">
+      <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Ram Prasad. All rights reserved.</p>
-      </div> */}
+      </div>
     </footer>
   );
 };
