@@ -1,0 +1,258 @@
+:root {
+  --pro-black: #050505;
+  --pro-gray: #707070;
+  --pro-light: #f5f5f7;
+  --pro-border: #e0e0e0;
+  --pro-accent: #0071e3;
+  
+  /* Fluid Typography scaling */
+  /* clamp(min, preferred, max) */
+  --fs-h1: clamp(2rem, 5vw, 3rem);
+  --fs-role: clamp(1rem, 2vw, 1.2rem);
+  --fs-bio: clamp(1.1rem, 1.5vw, 1.35rem);
+}
+
+.pro-page {
+  background: #ffffff;
+  color: var(--pro-black);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  /* Use dynamic viewport padding */
+  padding: clamp(20px, 5vw, 80px) clamp(15px, 3vw, 40px);
+  line-height: 1.5;
+}
+
+.pro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Navigation --- */
+.pro-nav { 
+  margin-bottom: clamp(40px, 8vw, 80px); 
+}
+
+.back-action {
+  background: none; border: none;
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--pro-gray); cursor: pointer;
+  font-weight: 500; font-size: 0.95rem;
+  padding: 8px 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.back-action:hover { 
+  color: var(--pro-black); 
+  transform: translateX(-5px);
+}
+
+/* --- Professional Layout Grid --- */
+.pro-layout {
+  display: grid;
+  /* Use a percentage-based sidebar that doesn't exceed 350px */
+  grid-template-columns: minmax(250px, 30%) 1fr;
+  gap: clamp(40px, 8vw, 100px);
+  align-items: start;
+}
+
+/* --- Sidebar (Identity) --- */
+.pro-sidebar {
+  position: sticky; /* Keeps your name/photo visible while scrolling on desktop */
+  top: 40px;
+}
+
+.image-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  border-radius: 12px; /* Softened professional corners */
+  overflow: hidden;
+  background: var(--pro-light);
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.image-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-frame:hover img { filter: grayscale(0%); }
+
+.pro-identity h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px 0;
+}
+
+.pro-role { 
+  color: var(--pro-accent); 
+  font-weight: 600; 
+  font-size: var(--fs-role); 
+  margin-bottom: 25px; 
+}
+
+.pro-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-row {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--pro-gray); font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover { color: var(--pro-accent); }
+
+.pro-socials { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  margin-top: 30px; 
+}
+
+.social-pill {
+  padding: 10px 20px; 
+  border: 1px solid var(--pro-border);
+  border-radius: 100px; 
+  background: white; 
+  font-size: 0.85rem;
+  font-weight: 600; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.social-pill:hover { 
+  background: var(--pro-black); 
+  color: white;
+  border-color: var(--pro-black);
+}
+
+/* --- Main Content Sections --- */
+.content-section {
+  margin-bottom: clamp(40px, 6vw, 70px);
+  border-top: 1px solid var(--pro-border);
+  padding-top: 24px;
+}
+
+.section-label {
+  font-size: 0.75rem; 
+  text-transform: uppercase;
+  letter-spacing: 0.15em; 
+  color: var(--pro-gray);
+  margin-bottom: 30px;
+  display: block;
+}
+
+.bio-text { 
+  font-size: var(--fs-bio); 
+  line-height: 1.7; 
+  color: #2c2c2e; 
+  max-width: 65ch; /* Keeps text lines at a readable length */
+}
+
+/* Skills Grid */
+.skill-grid { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 12px 24px; 
+}
+
+.skill-item {
+  font-size: 1.05rem; 
+  font-weight: 500;
+  padding: 8px 0; 
+  position: relative;
+}
+
+.skill-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--pro-light);
+}
+
+/* Timeline/Experience */
+.timeline-item {
+  display: grid; 
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.time-period { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  color: var(--pro-gray); 
+}
+
+.time-details h3 { font-size: 1.2rem; margin: 0; font-weight: 700; }
+.time-details p { color: var(--pro-gray); margin-top: 6px; font-size: 1rem; }
+
+/* --- Tablet & Mobile Optimization (The Switch) --- */
+
+@media (max-width: 900px) {
+  .pro-layout {
+    grid-template-columns: 1fr; /* Stack everything */
+    gap: 60px;
+  }
+
+  .pro-sidebar {
+    position: static; /* Remove sticky on mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-frame {
+    width: 180px; /* Consistent size for mobile profile */
+    height: 180px;
+    border-radius: 24px;
+  }
+
+  .pro-identity h1 {
+    margin-top: 10px;
+  }
+
+  .pro-contact-list {
+    align-items: center;
+  }
+
+  .pro-socials {
+    justify-content: center;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr; /* Date stacks over text */
+    gap: 5px;
+  }
+
+  .time-period {
+    color: var(--pro-accent); /* Make date pop on mobile */
+  }
+}
+
+/* --- Large Screen Enhancement --- */
+@media (min-width: 1400px) {
+  .pro-container {
+    max-width: 1300px;
+  }
+}
+
+/* Fix for touch devices to avoid hover stickiness */
+@media (hover: none) {
+  .image-frame img {
+    filter: grayscale(0%);
+  }
+}

@@ -1,0 +1,85 @@
+.services-section {
+    margin-bottom: 50px;
+  padding: 80px 20px;
+  background-color: #f9f9f9; /* Or match your theme background */
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #4a90e2;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  color: #3520bc;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card-modern {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-card-modern:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.icon-wrapper {
+  background: #f0f4ff;
+  color: #4a90e2; /* Your primary accent color */
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.service-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.service-card-modern h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.service-card-modern p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: #4a90e2;
+  transition: width 0.3s ease;
+}
+
+.service-card-modern:hover .card-accent {
+  width: 100%;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Style/navbar.css';
+import { Link } from 'react-router-dom';
 
 const TopContactBar = ({ visible }) => (
   <div className={`top-contact-bar${visible ? '' : ' hide'}`}>
@@ -42,7 +43,9 @@ const Navbar = () => {
       <TopContactBar visible={showTopBar} />
       <nav className="navbar-modern">
         <div className="navbar-container">
-          <a href="#" className="logo-modern">Ram Prasad</a>
+          <Link to="/" className="nav-logo">
+  Ram <span>Prasad</span>
+</Link>
           <button
             className="hamburger-modern"
             onClick={() => setOpen(!open)}

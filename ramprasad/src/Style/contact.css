@@ -1,43 +1,92 @@
-.contact-section-modern {
-  display: flex; /* Enables flexbox */
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 80vh; /* Ensures the section takes full viewport height */
-  padding: 60px 20px;
-  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Ensures it spans the full width */
-  margin: 0 auto; /* Centers horizontally */
-  overflow: hidden; /* Removes any overflow */
+:root {
+  --primary: #4f46e5;
+  --secondary: #0ea5e9;
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+}
+
+.contact-section-split {
+  /* 1. Add margin to separate from the Services section above */
+  margin-top: 80px; 
+  
+  /* 2. Changed to min-height to prevent clipping with extra padding */
+  min-height: 80vh; 
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-gradient);
+  
+  /* 3. Increased top padding for a clear gap */
+  padding: 100px 20px 60px 20px; 
+  
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-container {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Left Side - Info & Map */
+.contact-info-side {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.info-header p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.map-wrapper {
+  flex: 1;
+  min-height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 4px solid #fff;
+}
+
+/* Right Side - Form */
+.contact-form-side {
+  flex: 1;
+  background: #ffffff;
+  padding: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .contact-card-modern {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  padding:10px;
   width: 100%;
-  max-width: 500px; /* Limits the card width */
-  animation: fadeIn 0.8s ease-in-out;
-  box-sizing: border-box; /* Ensures padding is included in width calculations */
-}
-
-.contact-form-title {
-  font-size: 2rem;
-  color: #007bff;
-  font-weight: 800;
-  margin-bottom: 20px;
-  text-align: center;
-  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .contact-form-modern {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .contact-field-group {
@@ -46,74 +95,70 @@
   gap: 8px;
 }
 
-.contact-input-modern,
-.contact-textarea-modern {
-  width: 100%; /* Ensures the input fields stay within the card */
-  padding: 12px 16px; /* Adjusted padding for better fit */
-  border: 1.5px solid #c2e9fb;
-  border-radius: 12px;
-  background: #f8fafc;
-  font-size: 1rem; /* Slightly smaller font size for better fit */
-  color: #222;
-  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.06);
-  transition: box-shadow 0.3s, border 0.3s, background 0.3s;
-  outline: none;
-  resize: none;
-  box-sizing: border-box; /* Ensures padding is included in width calculations */
+.contact-field-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-left: 4px;
 }
 
-.contact-input-modern:focus,
-.contact-textarea-modern:focus {
-  background: #e0e7ff;
-  border: 1.5px solid #007bff;
-  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.3);
+.contact-field-group input,
+.contact-field-group textarea {
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contact-field-group input:focus,
+.contact-field-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
 .contact-btn-modern {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 14px 40px;
-  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
-  color: #fff;
+  margin-top: 10px;
+  padding: 14px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+  border: none;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 14px rgba(0, 123, 255, 0.2);
-  transition: background 0.3s, transform 0.3s;
-  border: none;
-  outline: none;
   cursor: pointer;
-  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-btn-modern:hover {
-  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.contact-success-message {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
-@media (max-width: 600px) {
-  .contact-section-modern {
-    padding: 20px;
-    height: auto; /* Adjust height for smaller screens */
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .contact-section-split {
+    height: auto;
+    padding: 60px 15px;
   }
-  .contact-form-title {
-    font-size: 1.5rem;
+  .contact-container {
+    flex-direction: column;
+    height: auto;
   }
-  .contact-btn-modern {
-    font-size: 1rem;
-    padding: 12px 0;
+  .contact-info-side, .contact-form-side {
+    padding: 30px;
+  }
+  .map-wrapper {
+    height: 300px;
   }
 }

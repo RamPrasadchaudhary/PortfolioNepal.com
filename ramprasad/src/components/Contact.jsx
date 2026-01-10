@@ -1,51 +1,116 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import '../Style/contact.css';
 
 const Contact = () => {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // 1. Update state keys to match your template variables
+  const [formData, setFormData] = useState({ 
+    from_name: '', 
+    reply_to: '', 
+    message: '' 
+  });
+  
+  const [status, setStatus] = useState({ type: '', message: '' });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    emailjs.sendForm(
-      'service_yzrrop9',     // Replace with your EmailJS Service ID
-      'template_9bxmkss',    // Replace with your EmailJS Template ID
-      form.current,
-      'Lixd6RDKy5kO6x-dM'      // Replace with your EmailJS Public Key
-    ).then(
-      (result) => {
-        alert('Message sent successfully!');
-        form.current.reset(); // optional: reset form after submission
-      },
-      (error) => {
-        alert('Failed to send message. Try again.');
-      }
-    );
+    // Using the IDs you provided
+    const SERVICE_ID = 'service_foi4xsf';
+    const TEMPLATE_ID = 'template_1i4pctj';
+    const PUBLIC_KEY = 'Y1jyftv5B4cFBImkq';
+
+    // 2. Sending the form ref directly
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then((result) => {
+        setIsSubmitting(false);
+        setStatus({ type: 'success', message: 'Message sent successfully!' });
+        
+        // Reset form to empty strings
+        setFormData({ from_name: '', reply_to: '', message: '' });
+        
+        setTimeout(() => setStatus({ type: '', message: '' }), 5000);
+      }, (error) => {
+        setIsSubmitting(false);
+        setStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+        console.error('EmailJS Error:', error.text);
+      });
   };
 
   return (
-    <section id="contact" className="contact-section-modern">
-      <div className="contact-card-modern">
-        <h3 className="contact-form-title">Send a Message</h3>
-        <form ref={form} onSubmit={sendEmail} className="contact-form-modern" autoComplete="off">
-          <div className="contact-field-group">
-            <input type="text" name="user_name" placeholder="Your Name" required className="contact-input-modern" />
+    <section id="contact" className="contact-section-split">
+      <div className="contact-container">
+        <div className="contact-info-side">
+            
+          <div className="info-header">
+            <h2 className="contact-title">Get In Touch</h2>
+            <p>I'm currently available for freelance work or full-time positions. Let's build something great!</p>
           </div>
-          <div className="contact-field-group">
-            <input type="email" name="user_email" placeholder="Your Email" required className="contact-input-modern" />
+          <div className="map-wrapper">
+             {/* Map iframe goes here */}
           </div>
-          <div className="contact-field-group">
-            <textarea name="message" rows="5" placeholder="Your Message" required className="contact-textarea-modern"></textarea>
+        </div>
+
+        <div className="contact-form-side">
+          <div className="contact-card-modern">
+            {status.message && (
+              <div className={`contact-message ${status.type === 'success' ? 'success' : 'error'}`}>
+                <span>{status.type === 'success' ? '✓' : '✕'} {status.message}</span>
+              </div>
+            )}
+
+            <form ref={form} onSubmit={sendEmail} className="contact-form-modern">
+              <div className="contact-field-group">
+                <label>Full Name</label>
+                <input 
+                  type="text" 
+                  name="from_name" // Matches {{from_name}} in your template
+                  placeholder="Your name" 
+                  value={formData.from_name}
+                  onChange={handleInputChange}
+                  required 
+                />
+              </div>
+
+              <div className="contact-field-group">
+                <label>Email Address</label>
+                <input 
+                  type="email" 
+                  name="reply_to" // Matches {{reply_to}} in your template
+                  placeholder="yourName@example.com" 
+                  value={formData.reply_to}
+                  onChange={handleInputChange}
+                  required 
+                />
+              </div>
+
+              <div className="contact-field-group">
+                <label>Your Message</label>
+                <textarea 
+                  name="message" // Matches {{message}} in your template
+                  rows="4" 
+                  placeholder="How can I help you?" 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" className="contact-btn-modern" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
           </div>
-          <button type="submit" className="contact-btn-modern">
-            <span>Send Message</span>
-            <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: 8 }} viewBox="0 0 24 24">
-              <path d="M22 2L11 13"></path>
-              <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-            </svg>
-          </button>
-        </form>
+        </div>
       </div>
     </section>
   );

@@ -4,16 +4,16 @@ import ramp from "../image/ramp.png";
 import {
   FaGithub,
   FaLinkedinIn,
-  FaReact,
   FaInstagram,
   FaFacebookF,
+  FaPaperPlane
 } from "react-icons/fa";
 
 const roles = [
   "Full Stack Developer",
   "Python Developer",
+  "UI/UX Enthusiast",
   "Web Developer",
-  "Frontend Developer",
 ];
 
 function Hero() {
@@ -26,82 +26,74 @@ function Hero() {
       setTimeout(() => {
         setCurrentRole((prev) => (prev + 1) % roles.length);
         setFade(true);
-      }, 400);
-    }, 2200);
+      }, 500);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="hero-section-adv hero-flex">
-      <div className="hero-content-adv">
-        <h1>
-          Hello, I'm <span className="hero-name-adv">Ram Prasad</span>
-        </h1>
-        <div
-          className={`hero-role-adv ${fade ? "fade-in-adv" : "fade-out-adv"}`}
-        >
-          {roles[currentRole]}
+    <section className="hero-section-adv">
+      {/* Decorative Background Shapes */}
+      <div className="bg-blob blob-1"></div>
+      <div className="bg-blob blob-2"></div>
+
+      <div className="hero-container">
+        <div className="hero-content-adv">
+          <p className="hero-welcome">WELCOME TO MY WORLD</p>
+          <h1>
+            Hi, I'm <span className="hero-name-adv">Ram Prasad</span>
+          </h1>
+          
+          <div className="role-container">
+            <span className="role-static">a </span>
+            <span className={`hero-role-adv ${fade ? "fade-in-adv" : "fade-out-adv"}`}>
+              {roles[currentRole]}
+            </span>
+          </div>
+
+          <p className="hero-desc-adv">
+            I specialize in crafting high-performance, beautiful web applications. 
+            Turning complex problems into elegant, user-centric solutions.
+          </p>
+
+          <div className="hero-cta-group">
+            <a href="/RamChaudhary.pdf" download className="btn-primary">
+              Download CV
+            </a>
+            <a href="#contact" className="btn-secondary">
+              <FaPaperPlane /> Let's Talk
+            </a>
+          </div>
+
+          <div className="hero-socials-wrapper">
+            <p>FIND ME ON</p>
+            <div className="hero-socials-adv">
+              <a href="https://github.com/RamPrasadchaudhary" target="_blank" rel="noreferrer" className="social-icon github">
+                <FaGithub />
+              </a>
+              <a href="https://linkedin.com/..." target="_blank" rel="noreferrer" className="social-icon linkedin">
+                <FaLinkedinIn />
+              </a>
+              <a href="https://instagram.com/..." target="_blank" rel="noreferrer" className="social-icon instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://facebook.com/..." target="_blank" rel="noreferrer" className="social-icon facebook">
+                <FaFacebookF />
+              </a>
+            </div>
+          </div>
         </div>
-        <p className="hero-desc-adv">
-          I build modern web applications and love to solve real-world problems
-          with code.
-        </p>
 
-        {/* ✅ Social Icons */}
-        <div className="hero-socials-adv">
-          <a
-            href="https://github.com/RamPrasadchaudhary"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-          >
-            <FaGithub size={28} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ram-prasad-chaudhary-312221251"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-          >
-            <FaLinkedinIn size={28} color="#0a66c2" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/ramprasadc331/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Instagram"
-          >
-            <FaInstagram size={28} color="#E1306C" />
-          </a>
-          <a
-            href="https://www.facebook.com/ram.prasad.kurmi.977638/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Facebook"
-          >
-            <FaFacebookF size={28} color="#1877F2" />
-          </a>
+        <div className="hero-avatar-wrapper">
+          <div className="avatar-glass-card">
+            <img src={ramp} alt="Ram Prasad" className="hero-img" />
+          </div>
+          {/* Floating badge example */}
+          <div className="floating-badge">
+            <span className="badge-icon">🚀</span>
+            <span>Available for Hire</span>
+          </div>
         </div>
-
-        <a href="/RamChaudhary.pdf" download className="hero-resume-btn-adv">
-          <span>Download Resume</span>
-          <svg
-            width="22"
-            height="22"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            style={{ marginLeft: 8 }}
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 5v14m7-7-7 7-7-7" />
-          </svg>
-        </a>
-      </div>
-
-      <div className="hero-avatar-adv">
-        <img src={ramp} alt="Ram Prasad" />
       </div>
     </section>
   );

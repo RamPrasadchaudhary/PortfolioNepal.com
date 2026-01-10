@@ -1,3 +1,43 @@
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  color: var(--text-dark); /* Fallback */
+  display: flex;
+  gap: 6px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Gradient effect on the second name or entire name */
+.nav-logo span {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* The Animated Underline */
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Hover States */
+.nav-logo:hover {
+  transform: scale(1.05); /* Slight "pop" effect */
+}
+
+.nav-logo:hover::after {
+  width: 100%;
+}
 .navbar-modern {
   position: sticky;
   top: 0;

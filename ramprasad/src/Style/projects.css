@@ -1,159 +1,145 @@
-.projects-section-flip {
-  padding: 48px 0;
-  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
-  border-radius: 24px;
-  margin: 40px 0;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+:root {
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent-blue: #2563eb;
+  --section-bg: #f8fafc;
+  --card-bg: #ffffff;
 }
-
-.projects-title-flip {
-  text-align: center;
-  padding-top:3%;
-  font-size: 2.1rem;
-  color: #007bff;
-  margin-bottom: 0 36px;
-  font-weight: 700;
-  letter-spacing: 1px;
+.subtitle{
+  color: #2563eb;
+  font-weight: 400;
 }
-
-.projects-list-flip {
-
+.projects-section-light {
+ height: 88vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: 36px;
+  flex-direction: column;
   justify-content: center;
-  align-items: stretch;
-  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+              radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%),
+              #f8fafc;
+  overflow: hidden;
+  padding: 0 24px;
+}
+  .projects-section-light::before { top: -10%; left: -5%; background: var(--primary-accent); }
+.projects-section-light::after { bottom: -10%; right: -5%; background: var(--secondary-accent); }
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem; /* Tighter margin to save height */
+}
+
+.projects-title-light {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.projects-container-light {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   max-width: 1200px;
-  padding: 0 12px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto; /* Adds scroll only if cards exceed 85vh */
+  padding: 10px;
+  /* Hide scrollbar for cleaner look */
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
 }
 
-.project-card-flip {
-  width: 270px;
-  height: 180px;
-  perspective: 1200px;
-  outline: none;
-  padding-bottom:1%;
-  padding-bottom: 2%;
+/* Card Sizing Refined */
+.project-card-light {
+  height: 240px; /* Slightly shorter to fit rows better */
+  width: 100%; /* More responsive than fixed 320px */
+  max-width: 320px;
+  margin: 0 auto;
+  perspective: 1000px;
 }
 
-.project-card-inner-flip {
+.card-inner-light {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.7s cubic-bezier(.4,2,.3,1);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform-style: preserve-3d;
 }
 
-.project-card-flip:hover .project-card-inner-flip,
-.project-card-flip:focus .project-card-inner-flip {
+.project-card-light:hover .card-inner-light {
   transform: rotateY(180deg);
 }
 
-.project-card-front-flip,
-.project-card-back-flip {
+.card-front-light,
+.card-back-light {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,123,255,0.10), 0 1.5px 0 #007bff inset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  border-radius: 16px;
   padding: 24px;
-  transition: box-shadow 0.3s;
-  box-sizing: border-box;
-}
-
-.project-card-front-flip {
-  background: linear-gradient(90deg, #e0e7ff 60%, #c2e9fb 100%);
-  color: #007bff;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.project-card-back-flip {
-  background: linear-gradient(120deg, #007bff 0%, #00c6ff 100%);
-  color: #fff;
-  transform: rotateY(180deg);
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: var(--card-bg);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+/* Side Specifics */
+.category-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: #eff6ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.card-front-light h3 {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin: 0;
   text-align: center;
 }
 
-.project-card-back-flip p {
-  margin: 0 0 18px 0;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.project-link-flip {
-  display: inline-block;
-  padding: 8px 22px;
+.card-back-light {
+  transform: rotateY(180deg);
+  border-color: var(--accent-blue);
   background: #fff;
-  color: #007bff;
-  border-radius: 6px;
-  font-weight: 600;
+}
+
+.card-back-light p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.btn-project-light {
+  padding: 8px 18px;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.10);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
 }
 
-.project-link-flip:hover {
-  background: #007bff;
-  color: #fff;
-  transform: scale(1.06);
+.btn-project-light:hover {
+  transform: scale(1.05);
 }
 
-@media (max-width: 1100px) {
-  .projects-list-flip {
-    gap: 24px;
-    max-width: 98vw;
-  }
-  .project-card-flip {
-    width: 220px;
-    height: 150px;
-  }
-}
-
-@media (max-width: 900px) {
-  .projects-list-flip {
-    gap: 18px;
-    padding: 0 4px;
-  }
-  .project-card-flip {
-    width: 180px;
-    height: 120px;
-  }
-}
-
-@media (max-width: 600px) {
-  .projects-section-flip {
-    padding: 24px 0;
-    border-radius: 0;
-    margin: 20px 0;
-  }
-  .projects-title-flip {
-    font-size: 1.3rem;
-    margin-bottom: 18px;
-  }
-  .projects-list-flip {
-    gap: 10px;
-    padding: 0 2px;
-  }
-  .project-card-flip {
-    width: 98vw;
-    max-width: 320px;
-    height: 120px;
-  }
-  .project-card-front-flip,
-  .project-card-back-flip {
-    padding: 10px 6px;
-    font-size: 0.95rem;
-  }
+/* Adjustments for smaller laptop screens */
+@media (max-height: 700px) {
+  .project-card-light { height: 200px; }
+  .projects-title-light { font-size: 1.5rem; }
 }

@@ -3,60 +3,76 @@ import '../Style/projects.css';
 
 const projects = [
   {
-    title: 'Portfolio Website',
-    description: 'A personal portfolio built with React and modern CSS. Responsive, fast, and easy to customize.',
-    link: 'https://your-portfolio-link.com',
-    linkLabel: 'View Live'
+    title: 'Modern Portfolio',
+    category: 'React • CSS3',
+    description: 'A minimalist, SEO-optimized portfolio designed for high performance and clean user experience.',
+    link: 'https://react-resume-eight.vercel.app/',
+    linkLabel: 'View Demo'
   },
+{
+  title: 'School Website',
+  category: 'MERN Stack',
+  description: 'Modern school website with pages for academics, admissions, notices, events, teachers, and student information — built for easy content management.',
+  link: 'https://happy-modelschool.vercel.app/',
+  linkLabel: 'Source Code'
+},
+{
+  title: 'Education Consultancy Website',
+  category: 'Node • MongoDB',
+  description: 'Professional consultancy website that showcases services, manages student inquiries, and features guidance pages for abroad studies and admissions.',
+  link: 'https://educonsultant.vercel.app/',
+  linkLabel: 'Source Code'
+},
+{
+  title: 'YouTube Clone',
+  category: 'Full Stack',
+  description: 'A video-sharing platform inspired by YouTube. Supports video uploads, streaming, likes, comments, subscriptions, and user authentication.',
+  link: 'https://youtube-clone-lake-tau.vercel.app/',
+  linkLabel: 'Source Code'
+},
+
   {
-    title: 'School Management System',
-    description: 'CRUD application using Php, and MySQL. Features authentication, dashboard, and reports.',
-    link: 'https://github.com/RamPrasadchaudhary/4th-semproject',
-    linkLabel: 'Source Code'
-  },
-  {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack MERN e-commerce app with payment integration, admin panel, and product management.',
-    link: 'https://github.com/your-github-id/ecommerce-platform',
-    linkLabel: 'Source Code'
-  },
-  {
-    title: 'Hostel Management System',
-    description: 'Full-stack MERN e-commerce app with payment integration, admin panel, and product management.',
-    link: 'https://github.com/RamPrasadchaudhary/Hostel_Management_System',
-    linkLabel: 'Source Code'
-  },
-  {
-    title: 'Stationary Software',
-    description: 'A C# language based Application that manage all the record about book stock, selling purchased etc.',
+    title: 'Inventory Suite',
+    category: 'C# • .NET',
+    description: 'Desktop application for retail bookstores focused on real-time stock tracking and sales analytics.',
     link: 'https://github.com/RamPrasadchaudhary/BookshopManagementSystem-Csharp',
     linkLabel: 'Source Code'
-  } ,
+  },
   {
-    title: 'EcoMart E-commerce For College Students running....... ',
-     description: 'Full-stack MERN e-commerce app with payment integration, admin panel, and product management.',
-    link: 'https://github.com/your-github-id/ecommerce-platform',
-    linkLabel: 'Source Code'
+    title: 'EcoMart P2P',
+    category: 'In Progress',
+    description: 'A sustainable marketplace for university students to exchange goods locally and securely.',
+    link: '#',
+    linkLabel: 'View GitHub'
   }
 ];
 
 const Projects = () => (
-  <section id="projects" className="projects-section-flip">
-    <h2 className="projects-title-flip">Projects</h2>
-    <div className="projects-list-flip">
+  <section id="projects" className="projects-section-light">
+    <div className="section-header">
+      <span className="subtitle">My Works</span>
+      <h2 className="projects-title-light">Featured Projects</h2>
+    </div>
+
+    <div className="projects-container-light">
       {projects.map((project, idx) => (
-        <div className="project-card-flip" key={idx} tabIndex={0}>
-          <div className="project-card-inner-flip">
-            <div className="project-card-front-flip">
+        <div className="project-card-light" key={idx} tabIndex={0}>
+          <div className="card-inner-light">
+            {/* Front Side */}
+            <div className="card-front-light">
+              <div className="category-tag">{project.category}</div>
               <h3>{project.title}</h3>
+              <div className="hover-indicator">View Details →</div>
             </div>
-            <div className="project-card-back-flip">
+            
+            {/* Back Side */}
+            <div className="card-back-light">
               <p>{project.description}</p>
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-link-flip"
+                className="btn-project-light"
               >
                 {project.linkLabel}
               </a>
