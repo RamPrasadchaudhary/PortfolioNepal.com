@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -18,17 +18,14 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
+    // 2. This is now using HashRouter internally
     <Router>
       <ScrollToTop />
       <div className={darkMode ? "dark" : ""}>
         <ErrorBoundary>
-          
-          {/* Navbar stays at the top of every page */}
           <Navbar />
-
           <main className="content-area">
             <Routes>
-              {/* 1. Main Landing Page (All-in-one view) */}
               <Route path="/" element={
                 <>
                   <Hero />
@@ -39,23 +36,16 @@ function App() {
                   <Contact />               
                 </>
               } />
-
-              {/* 2. Individual Pages (Standalone views) */}
+              {/* These routes will now work even if you refresh the page */}
               <Route path="/about" element={<About />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
-              
-              {/* 3. The Details Page we built */}
               <Route path="/profile" element={<Profile />} />
-                 <Route path="/gallery" element={<Gallery />} />
-              {/* 4. Hidden Debug Route */}
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/debug" element={<EmailDebugPanel />} />
-             
             </Routes>
           </main>
-
-          {/* Footer stays at the bottom of every page */}
           <Footer />
         </ErrorBoundary>
       </div>
