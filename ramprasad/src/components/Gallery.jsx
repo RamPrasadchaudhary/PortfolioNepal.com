@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Image as ImageIcon, Maximize2, Filter } from 'lucide-react';
 import '../Style/gallery.css';
+import ram1 from '../image/ram1.png';
+import ram2 from '../image/ram2.png';
+import ram3 from '../image/ram3.png';
+import ram4 from '../image/ram4.png';
+import ram5 from '../image/ram5.jpeg';
+import ram6 from '../image/ram6.png';
+import ram7 from '../image/ram7.png';
+import ram8 from '../image/ram8.png';
+import ram9 from '../image/ram9.png';
+import ram10 from '../image/ram10.png';
+import ram11 from '../image/ram11.png';
+import ram12 from '../image/ram12.png';
 
 const Gallery = () => {
   const navigate = useNavigate();
@@ -9,13 +21,20 @@ const Gallery = () => {
 
   // Sample Data - Replace with your actual image URLs
   const photos = [
-    { id: 1, category: 'travel', title: 'Kathmandu Streets', url: 'https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=600' },
-    { id: 2, category: 'tech', title: 'My Workspace', url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600' },
-    { id: 3, category: 'nature', title: 'Himalayan Peak', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600' },
-    { id: 4, category: 'travel', title: 'Pokhara Lake', url: 'https://images.unsplash.com/photo-1617469165786-8007eda3caa7?q=80&w=600' },
-    { id: 5, category: 'tech', title: 'Code Focus', url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600' },
-    { id: 6, category: 'nature', title: 'Forest Trail', url: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600' },
-  ];
+  { id: 1, category: 'travel', title: 'Photo 1', url: ram1 },
+  { id: 2, category: 'tech', title: 'Photo 2', url: ram2 },
+  { id: 3, category: 'nature', title: 'Photo 3', url: ram3 },
+  { id: 4, category: 'travel', title: 'Photo 4', url: ram4 },
+  { id: 5, category: 'tech', title: 'Photo 5', url: ram5 },
+  { id: 6, category: 'nature', title: 'Photo 6', url: ram6 },
+  { id: 7, category: 'travel', title: 'Photo 7', url: ram7 },
+  { id: 8, category: 'tech', title: 'Photo 8', url: ram8 },
+  { id: 9, category: 'nature', title: 'Photo 9', url: ram9 },
+  { id: 10, category: 'travel', title: 'Photo 10', url: ram10 },
+  { id: 11, category: 'tech', title: 'Photo 11', url: ram11 },
+  { id: 12, category: 'nature', title: 'Photo 12', url: ram12 },
+];
+
 
   const categories = ['all', 'nature', 'tech', 'travel'];
 

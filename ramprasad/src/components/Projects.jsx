@@ -14,21 +14,21 @@ const projects = [
   category: 'MERN Stack',
   description: 'Modern school website with pages for academics, admissions, notices, events, teachers, and student information — built for easy content management.',
   link: 'https://happy-modelschool.vercel.app/',
-  linkLabel: 'Source Code'
+  linkLabel: 'View Demo'
 },
 {
   title: 'Education Consultancy Website',
   category: 'Node • MongoDB',
   description: 'Professional consultancy website that showcases services, manages student inquiries, and features guidance pages for abroad studies and admissions.',
   link: 'https://educonsultant.vercel.app/',
-  linkLabel: 'Source Code'
+  linkLabel: 'View Demo'
 },
 {
   title: 'YouTube Clone',
   category: 'Full Stack',
   description: 'A video-sharing platform inspired by YouTube. Supports video uploads, streaming, likes, comments, subscriptions, and user authentication.',
   link: 'https://youtube-clone-lake-tau.vercel.app/',
-  linkLabel: 'Source Code'
+  linkLabel: 'View Demo'
 },
 
   {
@@ -36,14 +36,14 @@ const projects = [
     category: 'C# • .NET',
     description: 'Desktop application for retail bookstores focused on real-time stock tracking and sales analytics.',
     link: 'https://github.com/RamPrasadchaudhary/BookshopManagementSystem-Csharp',
-    linkLabel: 'Source Code'
+    linkLabel: 'View Demo'
   },
   {
     title: 'EcoMart P2P',
     category: 'In Progress',
     description: 'A sustainable marketplace for university students to exchange goods locally and securely.',
     link: '#',
-    linkLabel: 'View GitHub'
+    linkLabel: 'View Demo'
   }
 ];
 
