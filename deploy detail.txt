@@ -1,0 +1,14 @@
+npm install gh-pages --save-dev
+
+
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+npm run build
+npx gh-pages -d build
+
+npm run deploy
